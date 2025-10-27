@@ -1,0 +1,68 @@
+# Configuration Spring Boot pour l'application distroless
+# Master 2 Full Stack - Docker Optimization
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: spring-api-distroless
+  
+  # Configuration de la base de données (optionnelle pour ce demo)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo_db
+    username: ${DB_USERNAME:demo}
+    password: ${DB_PASSWORD:demo}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+# Configuration Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Configuration de sécurité
+security:
+  jwt:
+    secret: ${JWT_SECRET:mySecretKey}
+    expiration: 86400000 # 24 heures
+
+# Logging
+logging:
+  level:
+    com.example.demo: INFO
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/application.log
+
+# Informations de l'application
+info:
+  app:
+    name: Spring Boot Distroless Demo
+    description: API Spring Boot optimisée avec image distroless
+    version: 1.0.0
+    encoding: UTF-8
+    java:
+      version: '21.0.8'

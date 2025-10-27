@@ -1,0 +1,69 @@
+# Dockerfile.multi-stage (✅ BONNE PRATIQUE - Multi-stage optimisé)
+# Ce Dockerfile utilise les meilleures pratiques pour l'optimisation
+
+# ===================================
+# ÉTAPE 1 : BUILD
+# ===================================
+FROM node:18-alpine AS builder
+
+# Installer les outils nécessaires
+RUN apk add --no-cache python3 make g++
+
+WORKDIR /app
+
+# Copier uniquement les fichiers de dépendances (optimisation du cache)
+COPY package*.json ./
+
+# Installation propre avec ci (plus rapide et déterministe)
+RUN npm ci --only=production && \
+    npm ci --only=development
+
+# Copier les fichiers de configuration
+COPY tsconfig.json ./
+
+# Copier le code source
+COPY src ./src
+
+# Build TypeScript
+RUN npm run build
+
+# ===================================
+# ÉTAPE 2 : PRODUCTION
+# ===================================
+FROM node:18-alpine
+
+# Créer un utilisateur non-root pour la sécurité
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+WORKDIR /app
+
+# Copier uniquement les fichiers nécessaires depuis le builder
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
+
+# Changer les permissions
+RUN chown -R nodejs:nodejs /app
+
+# Utiliser l'utilisateur non-root
+USER nodejs
+
+# Exposer le port
+EXPOSE 3000
+
+# Healthcheck intégré
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3000/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+
+# Commande de démarrage
+CMD ["node", "dist/server.js"]
+
+# Avantages de ce Dockerfile :
+# 1. Multi-stage build (séparation build/production)
+# 2. Image Alpine (plus légère)
+# 3. Utilisateur non-root
+# 4. Optimisation du cache Docker
+# 5. Healthcheck intégré
+# 6. Seulement les dépendances de production
+# 7. Build séparé de l'exécution

@@ -1,0 +1,46 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies
+node_modules
+__pycache__
+*.pyc
+.venv
+target/
+
+# IDE
+.vscode
+.idea
+*.swp
+
+# Tests
+coverage/
+.pytest_cache
+test-results/
+
+# Documentation
+*.md
+docs/
+
+# CI/CD
+.github
+.gitlab-ci.yml
+
+# Secrets (au cas où)
+*.env
+*.key
+*.pem
+secrets/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp

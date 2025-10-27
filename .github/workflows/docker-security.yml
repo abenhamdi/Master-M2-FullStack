@@ -1,0 +1,72 @@
+name: Docker Security Scan
+
+on: [push, pull_request]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build Node.js image
+        run: |
+          cd node-api
+          docker build -t node-api:test -f Dockerfile.distroless .
+      
+      - name: Build Python image
+        run: |
+          cd python-api
+          docker build -t python-api:test -f Dockerfile.python-distroless .
+      
+      - name: Build Java image
+        run: |
+          cd java-api
+          docker build -t java-api:test -f Dockerfile.java-distroless .
+      
+      - name: Scan Node.js with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: node-api:test
+          severity: 'HIGH,CRITICAL'
+          exit-code: 1
+      
+      - name: Scan Python with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: python-api:test
+          severity: 'HIGH,CRITICAL'
+          exit-code: 1
+      
+      - name: Scan Java with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: java-api:test
+          severity: 'HIGH,CRITICAL'
+          exit-code: 1
+      
+      - name: Generate SBOM for Node.js
+        run: |
+          docker run --rm \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            anchore/syft node-api:test -o spdx-json > sbom-node.json
+      
+      - name: Generate SBOM for Python
+        run: |
+          docker run --rm \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            anchore/syft python-api:test -o spdx-json > sbom-python.json
+      
+      - name: Generate SBOM for Java
+        run: |
+          docker run --rm \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            anchore/syft java-api:test -o spdx-json > sbom-java.json
+      
+      - name: Upload SBOMs
+        uses: actions/upload-artifact@v3
+        with:
+          name: sboms
+          path: |
+            sbom-node.json
+            sbom-python.json
+            sbom-java.json
