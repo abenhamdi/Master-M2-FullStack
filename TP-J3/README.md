@@ -3,7 +3,7 @@
 ## 🌱 Projet GreenWatt
 **Plateforme de monitoring des énergies renouvelables**
 
----
+
 
 ## 📋 Objectifs du TP
 
@@ -13,11 +13,10 @@ Ce TP vous permettra de :
 - ✅ Déployer l'application sur Kubernetes
 - ✅ Implémenter le scaling et le monitoring
 
-**Durée estimée** : 6 heures
 
 ---
 
-## 🏗️ Architecture de l'Application
+## Architecture de l'Application
 
 ```
 GreenWatt Platform
@@ -32,9 +31,8 @@ GreenWatt Platform
 - **Types** : Solaire, Éolien, Hybride
 - **Métriques** : Production, efficacité, alertes
 
----
 
-## 🚀 Partie 0 : Tester l'Application en Local (Optionnel - 20 min)
+## Partie 0 : Tester l'Application en Local 
 
 ### Prérequis
 - Node.js 18+
@@ -83,9 +81,8 @@ npm start
 
 Le frontend sera accessible sur `http://localhost:3000`
 
----
 
-## 📦 Partie 1 : Dockerisation (2h)
+##  Partie 1 : Dockerisation
 
 ### Objectif
 Créer des Dockerfiles optimisés pour chaque service.
@@ -116,9 +113,8 @@ docker run -p 5000:5000 greenwatt-backend
 docker run -p 3000:80 greenwatt-frontend
 ```
 
----
 
-## 🎼 Partie 2 : Docker Compose (1h30)
+##Partie 2 : Docker Compose (1h30)
 
 ### Objectif
 Orchestrer tous les services avec Docker Compose.
@@ -152,9 +148,8 @@ curl http://localhost:5001/api/health
 open http://localhost:3000
 ```
 
----
 
-## ☸️ Partie 3 : Kubernetes (2h30)
+## Partie 3 : Kubernetes 
 
 ### Objectif
 Déployer l'application sur un cluster Kubernetes.
@@ -210,9 +205,8 @@ kubectl get svc -n greenwatt
 kubectl port-forward -n greenwatt svc/frontend-service 3000:80
 ```
 
----
 
-## 🧪 Tests et Vérification
+## Tests et Vérification
 
 ### Vérifier les Pods
 ```bash
@@ -240,35 +234,7 @@ kubectl scale deployment backend -n greenwatt --replicas=3
 kubectl get pods -n greenwatt
 ```
 
----
-
-## 📊 Critères d'Évaluation
-
-### Dockerisation (40 points)
-- [ ] Dockerfiles optimisés (multi-stage) - 15 pts
-- [ ] Images légères (Alpine) - 10 pts
-- [ ] Healthchecks configurés - 10 pts
-- [ ] Bonnes pratiques (non-root, .dockerignore) - 5 pts
-
-### Docker Compose (30 points)
-- [ ] Tous les services définis - 10 pts
-- [ ] Réseau et volumes configurés - 10 pts
-- [ ] Variables d'environnement - 5 pts
-- [ ] Application fonctionnelle - 5 pts
-
-### Kubernetes (30 points)
-- [ ] Tous les manifests créés - 10 pts
-- [ ] Déploiement réussi - 10 pts
-- [ ] Services accessibles - 5 pts
-- [ ] Scaling fonctionnel - 5 pts
-
-### Bonus (10 points)
-- [ ] Ingress configuré - 5 pts
-- [ ] HPA implémenté - 5 pts
-
----
-
-## 📚 Ressources
+## Ressources
 
 ### Documentation
 - [Docker Documentation](https://docs.docker.com/)
@@ -303,7 +269,7 @@ kubectl exec -it <pod> -n greenwatt -- sh  # Shell dans un pod
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Problème : Port déjà utilisé
 ```bash
@@ -327,20 +293,7 @@ kubectl logs <pod> -n greenwatt
 kubectl describe pod <pod> -n greenwatt
 ```
 
----
-
-## 🎯 Planning Suggéré
-
-| Temps | Activité |
-|-------|----------|
-| 0h00 - 0h20 | Test en local (optionnel) |
-| 0h20 - 2h20 | Partie 1 : Dockerisation |
-| 2h20 - 3h50 | Partie 2 : Docker Compose |
-| 3h50 - 6h20 | Partie 3 : Kubernetes |
-
----
-
-## 📝 Livrables
+## Livrables
 
 À la fin du TP, vous devez avoir :
 - [ ] `backend/Dockerfile`
@@ -349,9 +302,9 @@ kubectl describe pod <pod> -n greenwatt
 - [ ] Dossier `k8s/` avec tous les manifests
 - [ ] Application fonctionnelle sur Kubernetes
 
----
 
-## 👨‍🏫 Support
+
+## Support
 
 En cas de blocage :
 1. Consultez la documentation officielle
@@ -360,6 +313,6 @@ En cas de blocage :
 
 ---
 
-**Bon courage ! 🚀**
+Bon courage ! 
 
-À vos claviers les copains ! 🙂
+À vos claviers les copaings ! 🙂
