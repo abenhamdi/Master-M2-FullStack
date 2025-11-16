@@ -2,7 +2,7 @@
 
 Repository contenant les travaux pratiques de la formation Docker & Kubernetes pour Master 2 Full Stack.
 
-## 📚 Contenu
+## Contenu
 
 ### Jour 2 - Optimisation & Sécurité Docker
 **Dossier** : [Jour2/](./Jour2/)
@@ -11,7 +11,7 @@ Repository contenant les travaux pratiques de la formation Docker & Kubernetes p
 **Projet** : GreenWatt - Plateforme de monitoring des énergies renouvelables  
 **Dossier** : [TP-J3/](./TP-J3/)
 
-## 🚀 Pour les Étudiants
+##  Pour clone
 
 ```bash
 git clone https://github.com/abenhamdi/Master-M2-FullStack.git
@@ -20,4 +20,4 @@ cat README.md
 ```
 
 ---
-**Formateur** : Abdel Benhamdi | **Formation** : Master 2 Full Stack | **Année** : 2025-2026
+**Formateur** : Ayoub Benhamdi | **Formation** : Master 2 Full Stack | **Année** : 2025-2026
