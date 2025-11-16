@@ -309,7 +309,6 @@ kubectl describe pod <pod> -n greenwatt
 En cas de blocage :
 1. Consultez la documentation officielle
 2. Vérifiez les logs (`docker logs`, `kubectl logs`)
-3. Demandez de l'aide au formateur
 
 ---
 
