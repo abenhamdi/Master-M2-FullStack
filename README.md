@@ -11,6 +11,8 @@ Repository contenant les travaux pratiques de la formation Docker & Kubernetes p
 **Projet** : GreenWatt - Plateforme de monitoring des énergies renouvelables  
 **Dossier** : [TP-J3/](./TP-J3/)
 
+### Jour 4 - Orchestration avec Kubernetes + Monitoring de fermes solaires
+
 ##  Pour clone
 
 ```bash
