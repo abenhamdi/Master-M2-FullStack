@@ -108,6 +108,13 @@ else
     show_status "warning" "Dockerfile.python-distroless non trouvé"
 fi
 
+# Build image multi stage Python
+if [ -f "Dockerfile.python-multi-stage" ]; then
+    build_image "Dockerfile.python-multi-stage" "python-api:multi-stage" "."
+else
+    show_status "warning" "Dockerfile.python-multi-stage non trouvé"
+fi
+
 cd ..
 
 # Build des images Java
@@ -121,6 +128,13 @@ if [ -f "Dockerfile.java-distroless" ]; then
     build_image "Dockerfile.java-distroless" "java-api:distroless" "."
 else
     show_status "warning" "Dockerfile.java-distroless non trouvé"
+fi
+
+# Build image multi stage Java
+if [ -f "Dockerfile.java-multi-stage" ]; then
+    build_image "Dockerfile.java-multi-stage" "java-api:multi-stage" "."
+else
+    show_status "warning" "Dockerfile.java-multi-stage non trouvé"
 fi
 
 cd ..

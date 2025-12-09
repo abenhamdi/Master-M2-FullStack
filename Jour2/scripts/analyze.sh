@@ -94,11 +94,19 @@ for img in python-api:distroless; do
     analyze_image $img
 done
 
+for img in python-api:multi-stage; do
+    analyze_image $img
+done
+
 echo -e "${BLUE}🔍 Analyse des images Java...${NC}"
 echo ""
 
 # Analyser les images Java
 for img in java-api:distroless; do
+    analyze_image $img
+done
+
+for img in java-api:multi-stage; do
     analyze_image $img
 done
 

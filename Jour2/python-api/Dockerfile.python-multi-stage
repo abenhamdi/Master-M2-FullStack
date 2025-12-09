@@ -1,0 +1,55 @@
+# ========================
+# Build stage avec python alpine
+# ========================
+FROM python:3.11-alpine AS builder
+
+# Installer les dépendances systèmes minimalistes nécessaires
+RUN apk add --no-cache gcc g++ musl-dev libffi-dev
+
+RUN pip install --no-cache-dir poetry==1.8.3
+
+WORKDIR /app
+
+ENV POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_IN_PROJECT=1 \
+    POETRY_CACHE_DIR=/tmp/poetry_cache
+
+COPY pyproject.toml poetry.lock* ./
+
+RUN poetry install --no-root --only main
+
+COPY app /app/app
+
+RUN python -m compileall -b /app/app && find /app/app -name '*.py' -delete
+
+RUN find /app/.venv -name "__pycache__" -exec rm -rf {} + && \
+    find /app/.venv -name "*.dist-info" -exec rm -rf {} + && \
+    find /app/.venv -name "*.egg-info" -exec rm -rf {} + && \
+    find /app/.venv -name "tests" -type d -exec rm -rf {} + && \
+    rm -rf /app/.venv/share/man && \
+    find /app/.venv/lib/python3.11/site-packages -name "*.pyc" -delete && \
+    find /app/.venv/lib/python3.11/site-packages -name "*.py" -delete && \
+    rm -rf /app/.venv/lib/python3.11/site-packages/pip* && \
+    rm -rf /app/.venv/lib/python3.11/site-packages/setuptools* && \
+    rm -rf /app/.venv/lib/python3.11/site-packages/wheel* && \
+    rm -rf /root/.cache/pip /root/.cache/pypoetry /tmp/poetry_cache
+
+# ========================
+# Runtime distroless minimal
+# ========================
+FROM gcr.io/distroless/python3-debian12:nonroot
+
+ENV PYTHONPATH=/app \
+    PATH=/app/.venv/bin:$PATH \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+WORKDIR /app
+
+COPY --from=builder /app/.venv /app/.venv
+COPY --from=builder /app/app /app/app
+
+EXPOSE 8000
+
+ENTRYPOINT ["/usr/bin/python3", "-m", "uvicorn"]
+CMD ["app.main:app", "--host", "0.0.0.0", "--port", "8000"]
