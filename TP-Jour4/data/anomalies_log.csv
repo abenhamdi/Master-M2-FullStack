@@ -1,0 +1,41 @@
+timestamp,farm,type,severity,description,impact
+2025-06-15 12:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-15 13:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-15 14:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-15 15:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-16 12:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-16 13:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-16 14:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-16 15:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-17 12:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-17 13:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-17 14:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-17 15:00:00,provence,OVERHEAT,high,Surchauffe panneaux durant canicule,-12% production
+2025-06-20 14:00:00,provence,SENSOR_FAIL,high,Capteur irradiance défaillant,Données manquantes - alerte monitoring
+2025-06-20 15:00:00,provence,SENSOR_FAIL,high,Capteur irradiance défaillant,Données manquantes - alerte monitoring
+2025-06-20 16:00:00,provence,SENSOR_FAIL,high,Capteur irradiance défaillant,Données manquantes - alerte monitoring
+2025-06-08 10:00:00,occitanie,INVERTER_DOWN,critical,Onduleur 2 hors service,"-33% production, perte ~250€"
+2025-06-08 11:00:00,occitanie,INVERTER_DOWN,critical,Onduleur 2 hors service,"-33% production, perte ~250€"
+2025-06-08 12:00:00,occitanie,INVERTER_DOWN,critical,Onduleur 2 hors service,"-33% production, perte ~250€"
+2025-06-08 13:00:00,occitanie,INVERTER_DOWN,critical,Onduleur 2 hors service,"-33% production, perte ~250€"
+2025-06-08 14:00:00,occitanie,INVERTER_DOWN,critical,Onduleur 2 hors service,"-33% production, perte ~250€"
+2025-06-05 10:00:00,aquitaine,DEGRADATION,medium,Dégradation de 15 panneaux,-15% sur panneaux affectés
+2025-06-10 14:00:00,aquitaine,DEGRADATION,medium,Dégradation de 15 panneaux,-15% sur panneaux affectés
+2025-06-15 16:00:00,aquitaine,DEGRADATION,medium,Dégradation de 15 panneaux,-15% sur panneaux affectés
+2025-06-20 11:00:00,aquitaine,DEGRADATION,medium,Dégradation de 15 panneaux,-15% sur panneaux affectés
+2025-06-25 13:00:00,aquitaine,DEGRADATION,medium,Dégradation de 15 panneaux,-15% sur panneaux affectés
+2025-06-12 06:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-12 07:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-12 08:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-12 09:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-12 10:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-13 06:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-13 07:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-13 08:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-13 09:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-13 10:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-14 06:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-14 07:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-14 08:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-14 09:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
+2025-06-14 10:00:00,aquitaine,SHADING,medium,Brouillard matinal (océan),-40% production matinale
