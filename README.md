@@ -268,7 +268,7 @@ cat README.md
 
 ## 👨‍🏫 Formateur
 
-**Ayoub Benhamdi**  
+**Ayoub **  
 Formateur Data, IA et DevOps  
 15+ ans d'expérience
 
@@ -278,11 +278,9 @@ Formateur Data, IA et DevOps
 
 Pour toute question sur les TPs :
 - GitHub Issues : [Master-M2-FullStack/issues](https://github.com/abenhamdi/Master-M2-FullStack/issues)
-- Email : [à compléter]
 
 ---
 
 **Formation** : Master 2 Full Stack  
 **École** : YNOV Montpellier  
 **Année** : 2025-2026  
-**Licence** : Usage éducatif
