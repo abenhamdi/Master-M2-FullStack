@@ -27,7 +27,7 @@ Repository contenant les travaux pratiques de la formation Docker & Kubernetes p
 
 ---
 
-### Jour 5 - Platform Engineering & SRE Avancé ⭐ **NOUVEAU**
+### Jour 5 - Platform Engineering & SRE Avancé
 
 **Projet** : TechMarket - Construction d'une Internal Developer Platform (IDP)  
 **Dossier** : `TD-Jour5/`  
@@ -86,6 +86,81 @@ TEKTON (CI/CD Sécurisé)
 
 ---
 
+### Jour 6 - Docker Avancé & Data Engineering ⭐ **NOUVEAU**
+
+**Projet** : Pipeline ML/Data avec Docker - Optimisation, Orchestration & Monitoring  
+**Dossier** : `TD-Jour6/`  
+**Durée** : 4 heures
+
+#### Thèmes abordés :
+
+🐳 **Partie 1 - Optimisation d'images Docker (45 min)**
+- Multi-stage builds
+- .dockerignore
+- Réduction de taille d'images
+- Analyse de vulnérabilités (Docker Scout, Trivy)
+
+📦 **Partie 2 - Docker Compose Avancé (60 min)**
+- Orchestration de services complexes
+- Secrets et configs management
+- Health checks et dependencies
+- Resource limits et profiles
+- Networks isolés
+
+🐝 **Partie 3 - Docker Swarm (50 min)**
+- Déploiement en mode Swarm
+- Scaling et replicas
+- Rolling updates et rollback
+- Placement constraints
+- Load balancing
+
+🔒 **Partie 4 - Sécurité Docker (45 min)**
+- User non-root
+- Capabilities Linux
+- Read-only filesystem
+- CVE scanning automatisé
+- Secrets management
+
+🚀 **Partie 5 - CI/CD avec GitHub Actions (60 min)**
+- Pipeline complet (build, test, scan, deploy)
+- Multi-architecture builds
+- Security scanning intégré
+- Déploiement automatisé staging/production
+- Notifications et rollback
+
+📊 **Partie 6 - Monitoring & Observabilité (40 min)**
+- Prometheus (métriques custom)
+- Grafana (dashboards)
+- Alerting
+- Logs et traces
+
+#### Architecture Pipeline ML/Data
+
+```
+DATA INGESTION API (Flask)
+        ↓
+APACHE KAFKA (Message Broker)
+        ↓
+DATA PREPROCESSOR (Consumer)
+        ↓
+POSTGRESQL (Database)
+        ↓
+ML MODEL SERVING API (Flask)
+        ↓
+PROMETHEUS & GRAFANA (Monitoring)
+```
+
+#### Ressources fournies
+
+- **README.md** : Énoncé complet du TP (6 parties)
+- **AIDE.md** : Guide avec templates et exemples
+- **Fichiers Word** : Versions .docx pour faciliter la distribution
+- **Applications Python** : Code squelette pour ML service, Data API, Preprocessor
+
+**➡️ [Commencer le TP Jour 6](./TD-Jour6/README.md)**
+
+---
+
 ## 🚀 Pour commencer
 
 ```bash
@@ -94,7 +169,7 @@ git clone https://github.com/abenhamdi/Master-M2-FullStack.git
 cd Master-M2-FullStack
 
 # Choisir un TP
-cd TD-Jour5  # ou TP-Jour4, TP-J3, Jour2
+cd TD-Jour6  # ou TD-Jour5, TP-Jour4, TP-J3, Jour2
 
 # Lire le README
 cat README.md
@@ -125,7 +200,8 @@ cat README.md
 | Jour 2 | Optimisation Docker | ✅ | ⭐⭐ |
 | Jour 3 | Kubernetes Fondamentaux | ✅ | ⭐⭐⭐ |
 | Jour 4 | Monitoring & GitOps | ✅ | ⭐⭐⭐⭐ |
-| **Jour 5** | **Platform Engineering & SRE** | ✅ **NEW** | ⭐⭐⭐⭐⭐ |
+| Jour 5 | Platform Engineering & SRE | ✅ | ⭐⭐⭐⭐⭐ |
+| **Jour 6** | **Docker Avancé & Data Engineering** | ✅ **NEW** | ⭐⭐⭐⭐ |
 
 ---
 
@@ -148,6 +224,28 @@ cat README.md
 - CKA (Certified Kubernetes Administrator)
 - CKS (Certified Kubernetes Security Specialist)
 - FCSA (CNCF Security Specialist)
+
+### Jour 6 - Docker Avancé & Data Engineering
+
+✅ **Techniques** :
+- Optimisation d'images Docker
+- Orchestration multi-services (Compose, Swarm)
+- Sécurité des conteneurs
+- CI/CD avec Docker
+- Monitoring et observabilité
+- Pipeline ML/Data avec conteneurs
+
+✅ **Outils maîtrisés** :
+- Docker, Docker Compose, Docker Swarm
+- Prometheus, Grafana
+- GitHub Actions
+- Trivy, Docker Scout
+- Kafka, PostgreSQL
+
+✅ **Certifications préparées** :
+- Docker Certified Associate (DCA)
+- CKA (Certified Kubernetes Administrator)
+- Compétences Data Engineering
 
 ---
 
