@@ -1,6 +1,5 @@
 # PARTIE 2 : Déploiement Kubernetes
-## Durée : 60 minutes | 25 points
-
+## Durée : 60 minutes
 ### Objectifs
 
 Dans cette deuxième partie, vous allez déployer l'architecture microservices complète sur Kubernetes en créant tous les manifests nécessaires.
@@ -842,21 +841,6 @@ wget -O- http://api-gateway:8080/health
 ```
 
 ---
-
-## Barème (25 points)
-
-| Critère | Points | Détail |
-|---------|--------|--------|
-| **Namespace** | 2 | Namespace créé avec labels |
-| **ConfigMaps/Secrets** | 5 | ConfigMap (2pts), Secrets (2pts), Utilisation correcte (1pt) |
-| **StatefulSet PostgreSQL** | 6 | StatefulSet correct (3pts), PVC (2pts), Probes (1pt) |
-| **Deployments** | 8 | 5 Deployments avec resources/probes/security (2pts Frontend, 2pts Gateway, 1.5pts chacun pour Auth/Products/Orders) |
-| **Services** | 2 | 5 Services ClusterIP avec bons selectors |
-| **Ingress** | 2 | Ingress avec routing correct pour 2 hosts |
-
----
-
-## Aide
 
 ### Erreur : ImagePullBackOff
 ```bash

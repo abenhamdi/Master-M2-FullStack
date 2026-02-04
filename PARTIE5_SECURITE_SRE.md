@@ -1,6 +1,5 @@
 # PARTIE 5 : Sécurité, SRE et Chaos Engineering
-## Durée : 45 minutes | 25 points
-
+## Durée : 45 minutes
 ### Objectifs
 
 Dans cette cinquième et dernière partie, vous allez implémenter les pratiques SRE avancées : Policy as Code avec Kyverno, analyse de sécurité runtime avec Falco, CI/CD sécurisé avec signature d'images, calcul d'Error Budget, et tests de résilience avec Chaos Engineering.
@@ -686,18 +685,6 @@ cosign verify --key cosign.pub ghcr.io/org/cloudshop/frontend:tag
 kubectl get chaosresult -n cloudshop-prod
 # Pass : true
 ```
-
----
-
-## Barème (25 points)
-
-| Critère | Points | Détail |
-|---------|--------|--------|
-| **Kyverno Policies** | 8 | 3 policies créées et testées (2.5pts chacune), +0.5pt pour test réussi |
-| **Falco Runtime Security** | 5 | Installation (2pts), Règles custom (2pts), Test alertes (1pt) |
-| **CI/CD + Cosign** | 8 | Pipeline fonctionnel (4pts), Signature images (2pts), SBOM (1pt), Policy verify (1pt) |
-| **Error Budget** | 4 | Calcul correct (2pts), Dashboard Grafana (2pts) |
-| **Chaos Engineering** | 5 | Litmus installé (2pts), Experiment exécuté (2pts), Application résiliente (1pt) |
 
 ---
 

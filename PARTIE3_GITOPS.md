@@ -1,6 +1,5 @@
 # PARTIE 3 : GitOps avec ArgoCD
-## Durée : 45 minutes | 15 points
-
+## Durée : 45 minutes
 ### Objectifs
 
 Dans cette troisième partie, vous allez implémenter le GitOps avec ArgoCD pour automatiser le déploiement continu de l'application CloudShop depuis Git.
@@ -508,17 +507,6 @@ kubectl logs -n argocd -l app.kubernetes.io/name=argocd-server --tail=100
 
 ---
 
-## Barème (15 points)
-
-| Critère | Points | Détail |
-|---------|--------|--------|
-| **Installation ArgoCD** | 4 | ArgoCD installé (2pts), UI accessible (1pt), CLI configuré (1pt) |
-| **Applications ArgoCD** | 6 | 4 Applications créées correctement (1.5pts chacune) |
-| **Sync Policies** | 3 | Auto-sync (1pt), Prune (1pt), Self-heal (1pt) |
-| **Rollback** | 2 | Rollback testé et fonctionnel |
-
----
-
 ## Concepts Clés
 
 ### GitOps Principles
@@ -543,8 +531,6 @@ ArgoCD évalue la santé des ressources :
 - **Ingress** : Backend services healthy
 
 ---
-
-## Aide
 
 ### Erreur : Application OutOfSync
 

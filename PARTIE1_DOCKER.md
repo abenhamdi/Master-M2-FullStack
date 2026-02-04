@@ -1,6 +1,5 @@
 # PARTIE 1 : Conteneurisation Docker
-## Durée : 45 minutes | 20 points
-
+## Durée : 45 minutes
 ###  Objectifs
 
 Dans cette première partie, vous allez conteneuriser les 5 microservices de la plateforme CloudShop en appliquant les **best practices** apprises durant les Jours 1 et 2.
@@ -432,14 +431,6 @@ docker-compose logs -f api-gateway
 ---
 
 ##  Barème (20 points)
-
-| Critère | Points | Détail |
-|---------|--------|--------|
-| **Dockerfiles Multi-Stage** | 5 | 1 pt par Dockerfile correct |
-| **Taille des Images** | 5 | Respect des cibles (<50MB, <150MB, <180MB, <20MB) |
-| **Sécurité** | 5 | Non-root (2), Healthchecks (2), Scan Trivy OK (1) |
-| **Docker Compose** | 3 | Fichier complet, networks, depends_on, healthchecks |
-| **.dockerignore** | 2 | Fichiers présents et pertinents |
 
 ---
 

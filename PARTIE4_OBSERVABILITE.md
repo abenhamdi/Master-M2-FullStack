@@ -1,6 +1,5 @@
 # PARTIE 4 : Observabilité avec Prometheus et Grafana
-## Durée : 45 minutes | 15 points
-
+## Durée : 45 minutes
 ### Objectifs
 
 Dans cette quatrième partie, vous allez déployer une stack complète d'observabilité avec Prometheus et Grafana pour monitorer la plateforme CloudShop.
@@ -522,19 +521,6 @@ sum(container_memory_working_set_bytes{namespace="cloudshop-prod"}) by (pod) / 1
 ```
 
 ---
-
-## Barème (15 points)
-
-| Critère | Points | Détail |
-|---------|--------|--------|
-| **Stack Monitoring** | 4 | Prometheus (2pts), Grafana (2pts) installés et accessibles |
-| **ServiceMonitors** | 4 | 4 ServiceMonitors créés et fonctionnels (1pt chacun) |
-| **Dashboards Grafana** | 4 | Dashboard Overview (2pts), Dashboard SLO (2pts) avec métriques affichées |
-| **Alerting Rules** | 3 | Minimum 3 alertes configurées (1pt chacune) |
-
----
-
-## Aide
 
 ### ServiceMonitor ne scrape pas
 

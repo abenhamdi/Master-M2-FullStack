@@ -90,7 +90,6 @@ Namespace `cloudshop-prod`
 1 StatefulSet PostgreSQL avec PVC  
 ConfigMaps & Secrets  
 
-
 ---
 
 ## PARTIE 3 : GitOps avec ArgoCD 
@@ -156,7 +155,6 @@ ConfigMaps & Secrets
 Pipeline GitHub Actions avec Cosign  
 Calcul Error Budget (SLO 99.9%)  
 1 Chaos Experiment (pod-delete)  
-
 
 ---
 
