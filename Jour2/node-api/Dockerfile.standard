@@ -1,0 +1,32 @@
+# Dockerfile.standard (❌ ANTI-PATTERN - À NE PAS FAIRE EN PRODUCTION)
+# Ce Dockerfile illustre les mauvaises pratiques pour démontrer l'importance de l'optimisation
+
+FROM node:18
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier TOUT le contenu (mauvaise pratique)
+COPY . .
+
+# Installation de TOUTES les dépendances (dev + prod)
+RUN npm install
+
+# Build de l'application
+RUN npm run build
+
+# Exposer le port
+EXPOSE 3000
+
+# Commande de démarrage
+CMD ["npm", "start"]
+
+# Problèmes de ce Dockerfile :
+# 1. Copie de fichiers inutiles (.git, node_modules, etc.)
+# 2. Installation des devDependencies en production
+# 3. Pas de multi-stage build
+# 4. Pas d'utilisateur non-root
+# 5. Pas de healthcheck
+# 6. Image de base lourde (node:18 vs node:18-alpine)
+# 7. Pas de .dockerignore
+# 8. Pas d'optimisation du cache Docker

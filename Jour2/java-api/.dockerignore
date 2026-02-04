@@ -1,0 +1,110 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+*.iml
+*.ipr
+*.iws
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test files
+test-results/
+surefire-reports/
+failsafe-reports/
+
+# Documentation
+*.md
+docs/
+README.md
+CHANGELOG.md
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+.circleci
+
+# Logs
+logs
+*.log
+
+# Secrets and sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+private/
+
+# Docker files (pour éviter la récursion)
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Spring Boot
+application-*.yml
+application-*.properties
+!application.yml
+!application.properties
+
+# Gradle (si utilisé)
+.gradle
+gradle/
+gradlew
+gradlew.bat
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini

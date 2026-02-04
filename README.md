@@ -1,366 +1,286 @@
-# TD Final - Déploiement d'une Plateforme E-Commerce Cloud Native
-## Master 2 Full Stack - Docker & Kubernetes
+# Master M2 Full Stack - Formation Docker & Kubernetes
 
-###  Contexte & Mission
+Repository contenant les travaux pratiques de la formation Docker & Kubernetes pour Master 2 Full Stack.
 
-Vous êtes **SRE/DevOps Engineer** chez **CloudShop**, une startup e-commerce qui vient de lever des fonds. L'équipe technique vous confie la mission de **moderniser l'infrastructure** en migrant vers une architecture **Cloud Native**.
+## 📚 Contenu
 
-**Contraintes business** :
-- Déploiements multiples par jour (CI/CD automatisé)
-- Sécurité renforcée (images signées, policies strictes)
-- Observabilité complète (métriques, logs, traces)
-- Haute disponibilité (99.9% SLO)
-- Tests de résilience obligatoires (Chaos Engineering)
+### Jour 2 - Optimisation & Sécurité Docker
 
-### Architecture Microservices
-
-Votre plateforme est composée de **5 microservices** :
-
-1. **Frontend** (React + Vite)
-   - Interface utilisateur SPA
-   - Port: 3000
-   - Langage: JavaScript/TypeScript
-
-2. **API Gateway** (Node.js Express)
-   - Point d'entrée unique
-   - Routing vers les microservices
-   - Rate limiting, CORS
-   - Port: 8080
-
-3. **Auth Service** (Node.js)
-   - Authentification JWT
-   - Gestion des users
-   - Port: 8081
-
-4. **Products API** (Python FastAPI)
-   - CRUD produits
-   - Elasticsearch pour recherche
-   - Port: 8082
-
-5. **Orders API** (Go)
-   - Gestion des commandes
-   - Connexion PostgreSQL
-   - Port: 8083
-
-### Travail à Réaliser
-
-Le TD est découpé en **5 parties** correspondant aux 5 jours de formation.
+**Dossier** : `Jour2/`  
+**Thèmes** : Optimisation des images, sécurité des containers, bonnes pratiques
 
 ---
 
-## PARTIE 1 : Conteneurisation Docker
+### Jour 3 - Orchestration avec Kubernetes
 
-**Fichier détaillé** : `PARTIE1_DOCKER.md`
-
-### Objectifs
-- Créer des Dockerfiles multi-stage optimisés
-- Configurer Docker Compose pour le développement local
-- Appliquer les best practices de sécurité
-
-### Livrables attendus
-5 Dockerfiles (un par microservice)  
-1 `docker-compose.yml` fonctionnel  
-1 `.dockerignore` par service  
-Images < 200MB  
-Utilisateur non-root  
-
-### Critères d'évaluation
-- Multi-stage builds : 5 pts
-- Taille des images : 5 pts
-- Sécurité (non-root, scan) : 5 pts
-- Docker Compose complet : 5 pts
+**Projet** : GreenWatt - Plateforme de monitoring des énergies renouvelables  
+**Dossier** : `TP-J3/`  
+**Thèmes** : Déploiements, Services, ConfigMaps, Secrets
 
 ---
 
-## PARTIE 2 : Déploiement Kubernetes
+### Jour 4 - Monitoring & GitOps
 
-**Fichier détaillé** : `PARTIE2_KUBERNETES.md`
-
-### Objectifs
-- Créer les manifests Kubernetes (Deployments, Services, Ingress)
-- Déployer PostgreSQL en StatefulSet
-- Configurer les ConfigMaps et Secrets
-- Exposer l'application via Ingress
-
-### Livrables attendus
-Namespace `cloudshop-prod`  
-5 Deployments avec requests/limits  
-5 Services (ClusterIP)  
-1 Ingress (shop.local, api.local)  
-1 StatefulSet PostgreSQL avec PVC  
-ConfigMaps & Secrets  
+**Projet** : Monitoring de fermes solaires  
+**Dossier** : `TP-Jour4/`  
+**Thèmes** : Prometheus, Grafana, ArgoCD, GitOps
 
 ---
 
-## PARTIE 3 : GitOps avec ArgoCD 
+### Jour 5 - Platform Engineering & SRE Avancé
 
-**Fichier détaillé** : `PARTIE3_GITOPS.md`
+**Projet** : TechMarket - Construction d'une Internal Developer Platform (IDP)  
+**Dossier** : `TD-Jour5/`  
+**Durée** : 3 heures
 
-### Objectifs
-- Installer ArgoCD
-- Créer des Applications ArgoCD
-- Configurer la synchronisation automatique
-- Tester un rollback
+#### Thèmes abordés :
 
-### Livrables attendus
- ArgoCD installé et accessible  
- 1 Application ArgoCD par environnement (dev, staging, prod)  
- Auto-sync activé  
- Healt checks configurés  
+🎯 **Bloc 1 - Platform Engineering (45 min)**
+- Backstage (IDP)
+- Software Catalog
+- Software Templates (Golden Paths)
+- Plugin Kubernetes
 
-### Critères d'évaluation (15 points)
-- Installation ArgoCD : 4 pts
-- Applications configurées : 6 pts
-- Sync policies : 3 pts
-- Rollback testé : 2 pts
+🔒 **Bloc 2 - Policy as Code & Supply Chain Security (45 min)**
+- Kyverno (Admission Controller)
+- ClusterPolicies (Validation & Mutation)
+- Cosign (Signature d'images)
+- Supply Chain Security (SLSA, Sigstore)
 
----
+📊 **Bloc 3 - SRE & Chaos Engineering (45 min)**
+- SLIs/SLOs & Error Budget
+- Litmus Chaos
+- Chaos Experiments (pod-delete)
+- Postmortem Blameless
 
-## PARTIE 4 : Observabilité (Prometheus, Grafana) 
+🚀 **Bloc 4 - CI/CD Avancé (45 min)**
+- Tekton Pipelines
+- Tasks sécurisées (Build, Scan, Sign)
+- SBOM (Software Bill of Materials)
+- Pipeline complet Cloud Native
 
- **Fichier détaillé** : `PARTIE4_OBSERVABILITE.md`
+#### Architecture TechMarket
 
-### Objectifs
-- Déployer la stack Prometheus + Grafana
-- Créer des ServiceMonitors
-- Configurer des dashboards Grafana
-- Définir des SLI/SLO et alertes
-
-### Livrables attendus
- Prometheus + Grafana déployés  
- ServiceMonitors pour chaque microservice  
- 2 dashboards Grafana (Overview, SLOs)  
- Alerting rules (HighErrorRate, LatencyP95)  
-
-### Critères d'évaluation (15 points)
-- Stack monitoring : 4 pts
-- ServiceMonitors : 4 pts
-- Dashboards Grafana : 4 pts
-- Alertes configurées : 3 pts
-
----
-
-## PARTIE 5 : Sécurité, SRE & Chaos 
-
-**Fichier détaillé** : `PARTIE5_SECURITE_SRE.md`
-
-### Objectifs
-- Implémenter Policy as Code avec Kyverno
-- Créer un pipeline CI/CD avec signature d'images (Cosign)
-- Calculer les Error Budgets
-- Exécuter un Chaos Experiment avec Litmus
-
-### Livrables attendus
-3 ClusterPolicies Kyverno (deny-latest, require-resources, check-signature)  
-Pipeline GitHub Actions avec Cosign  
-Calcul Error Budget (SLO 99.9%)  
-1 Chaos Experiment (pod-delete)  
-
----
-
-## Démarrage
-
-### Prérequis
-
-**Outils nécessaires** :
-```bash
-docker --version          # >= 24.0
-docker-compose --version  # >= 2.20
-kubectl version --client  # >= 1.28
-helm version             # >= 3.12
-kind version             # >= 0.20 (ou k3d, minikube)
+```
+BACKSTAGE PORTAL (IDP)
+        ↓
+KUBERNETES CLUSTER
+├── Frontend (React)
+├── Backend API (Node.js)
+└── Payment Service (Node.js)
+        ↓
+KYVERNO (Policy as Code)
+PROMETHEUS (SLOs & Metrics)
+LITMUS (Chaos Engineering)
+TEKTON (CI/CD Sécurisé)
 ```
 
-**Accès** :
-- Compte GitHub (pour GitOps et CI/CD)
-- Accès à un cluster Kubernetes (Kind, K3d ou minikube)
+#### Application complète
 
-### Étape 1 : Setup du Cluster Local
+- **Frontend** : React avec UI moderne
+- **Backend** : API Node.js Express avec métriques Prometheus
+- **Payment Service** : Service critique avec SLO 99.9%
+- **Manifests K8s** : Deployments, Services, HPA, PDB
 
-```bash
-# Créer un cluster Kind avec Ingress
-cat <<EOF | kind create cluster --config=-
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-name: cloudshop
-nodes:
-- role: control-plane
-  kubeadmConfigPatches:
-  - |
-    kind: InitConfiguration
-    nodeRegistration:
-      kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
-  extraPortMappings:
-  - containerPort: 80
-    hostPort: 80
-  - containerPort: 443
-    hostPort: 443
-EOF
+**➡️ [Commencer le TP Jour 5](./TD-Jour5/README.md)**
 
-# Vérifier
-kubectl cluster-info
-kubectl get nodes
+---
+
+### Jour 6 - Docker Avancé & Data Engineering ⭐ **NOUVEAU**
+
+**Projet** : Pipeline ML/Data avec Docker - Optimisation, Orchestration & Monitoring  
+**Dossier** : `TD-Jour6/`  
+**Durée** : 4 heures
+
+#### Thèmes abordés :
+
+🐳 **Partie 1 - Optimisation d'images Docker (45 min)**
+- Multi-stage builds
+- .dockerignore
+- Réduction de taille d'images
+- Analyse de vulnérabilités (Docker Scout, Trivy)
+
+📦 **Partie 2 - Docker Compose Avancé (60 min)**
+- Orchestration de services complexes
+- Secrets et configs management
+- Health checks et dependencies
+- Resource limits et profiles
+- Networks isolés
+
+🐝 **Partie 3 - Docker Swarm (50 min)**
+- Déploiement en mode Swarm
+- Scaling et replicas
+- Rolling updates et rollback
+- Placement constraints
+- Load balancing
+
+🔒 **Partie 4 - Sécurité Docker (45 min)**
+- User non-root
+- Capabilities Linux
+- Read-only filesystem
+- CVE scanning automatisé
+- Secrets management
+
+🚀 **Partie 5 - CI/CD avec GitHub Actions (60 min)**
+- Pipeline complet (build, test, scan, deploy)
+- Multi-architecture builds
+- Security scanning intégré
+- Déploiement automatisé staging/production
+- Notifications et rollback
+
+📊 **Partie 6 - Monitoring & Observabilité (40 min)**
+- Prometheus (métriques custom)
+- Grafana (dashboards)
+- Alerting
+- Logs et traces
+
+#### Architecture Pipeline ML/Data
+
+```
+DATA INGESTION API (Flask)
+        ↓
+APACHE KAFKA (Message Broker)
+        ↓
+DATA PREPROCESSOR (Consumer)
+        ↓
+POSTGRESQL (Database)
+        ↓
+ML MODEL SERVING API (Flask)
+        ↓
+PROMETHEUS & GRAFANA (Monitoring)
 ```
 
-### Étape 2 : Installer les Prérequis
+#### Ressources fournies
+
+- **README.md** : Énoncé complet du TP (6 parties)
+- **AIDE.md** : Guide avec templates et exemples
+- **Fichiers Word** : Versions .docx pour faciliter la distribution
+- **Applications Python** : Code squelette pour ML service, Data API, Preprocessor
+
+**➡️ [Commencer le TP Jour 6](./TD-Jour6/README.md)**
+
+---
+
+## 🚀 Pour commencer
 
 ```bash
-# Ingress Controller (Traefik)
-helm repo add traefik https://traefik.github.io/charts
-helm install traefik traefik/traefik \
-  --namespace traefik --create-namespace
+# Cloner le repository
+git clone https://github.com/abenhamdi/Master-M2-FullStack.git
+cd Master-M2-FullStack
 
-# Cert-Manager (optionnel pour HTTPS)
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.0/cert-manager.yaml
-```
+# Choisir un TP
+cd TD-Jour6  # ou TD-Jour5, TP-Jour4, TP-J3, Jour2
 
-### Étape 3 : Explorer le Code
-
-```bash
-cd tp-etudiant/src
-
-# Structure fournie :
-src/
- frontend/           # React (package.json fourni, Dockerfile à créer)
- api-gateway/        # Node.js (server.js fourni, Dockerfile à créer)
- auth-service/       # Node.js (app.js fourni, Dockerfile à créer)
- products-api/       # Python (main.py fourni, Dockerfile à créer)
- orders-api/         # Go (main.go fourni, Dockerfile à créer)
-```
-
-### Étape 4 : Commencer le TD
-
-```bash
-# Ouvrir l'énoncé de la Partie 1
-cat PARTIE1_DOCKER.md
-
-# Lancer le projet en mode dev
-docker-compose up -d
+# Lire le README
+cat README.md
 ```
 
 ---
 
-## Ressources & Documentation
+## 📋 Prérequis généraux
 
-### Documentation Officielle
-- [Docker Best Practices](https://docs.docker.com/develop/dev-best-practices/)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
-- [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
-- [Prometheus Operator](https://prometheus-operator.dev/)
-- [Kyverno Policies](https://kyverno.io/policies/)
+- Docker (v24+)
+- Kubernetes (v1.28+) via Kind ou Minikube
+- kubectl
+- Helm v3
+- Git
 
-### Cours de la Formation
-- **Jour 1-2** : Docker, Images, Compose, Sécurité
-- **Jour 3** : Kubernetes Orchestration
-- **Jour 4** : GitOps, Prometheus, Grafana, Velero
-- **Jour 5** : Backstage, Kyverno, SRE, Litmus, Tekton
+### Prérequis spécifiques Jour 5
 
-### Exemples de Commandes Utiles
-
-```bash
-# Docker
-docker build -t myapp:v1.0 .
-docker images | grep myapp
-docker run -p 8080:8080 myapp:v1.0
-docker-compose up -d
-docker-compose logs -f api-gateway
-
-# Kubernetes
-kubectl create namespace cloudshop-prod
-kubectl apply -f k8s/
-kubectl get pods -n cloudshop-prod
-kubectl logs -f deployment/frontend -n cloudshop-prod
-kubectl describe pod <pod-name> -n cloudshop-prod
-kubectl port-forward svc/api-gateway 8080:8080 -n cloudshop-prod
-
-# ArgoCD
-argocd app create frontend --repo https://github.com/user/cloudshop.git \
-  --path k8s/frontend --dest-server https://kubernetes.default.svc \
-  --dest-namespace cloudshop-prod
-argocd app sync frontend
-argocd app get frontend
-
-# Prometheus
-kubectl port-forward svc/prometheus-operated 9090:9090 -n monitoring
-
-# Kyverno
-kubectl apply -f policies/deny-latest.yaml
-kubectl get clusterpolicy
-kubectl describe clusterpolicy disallow-latest-tag
-```
+- Cosign (v2.0+)
+- Tekton CLI (tkn)
+- Compte GitHub (OAuth + GHCR)
 
 ---
 
-## Checklist de Validation
+## 📊 Progression
 
-Avant de rendre votre travail, vérifiez que :
-
-### Docker & Compose
-- [ ] Les 5 Dockerfiles sont créés et optimisés (multi-stage)
-- [ ] `docker-compose up` démarre tous les services sans erreur
-- [ ] Frontend accessible sur http://localhost:3000
-- [ ] API Gateway accessible sur http://localhost:8080
-- [ ] Toutes les images < 200MB
-- [ ] Scan Trivy ne remonte aucune vulnérabilité CRITICAL
-
-### Kubernetes
-- [ ] `kubectl get pods -n cloudshop-prod` affiche 5 pods RUNNING
-- [ ] PostgreSQL StatefulSet est persistant (survit à un redémarrage)
-- [ ] Ingress fonctionne : http://shop.local redirige vers le frontend
-- [ ] Tous les Deployments ont des `requests` et `limits` configurés
-- [ ] Secrets et ConfigMaps sont utilisés (pas de credentials en dur)
-
-### GitOps
-- [ ] ArgoCD UI accessible (kubectl port-forward)
-- [ ] Au moins 1 Application ArgoCD synchronisée
-- [ ] Auto-sync fonctionne (changement dans Git = déploiement auto)
-- [ ] Health check "Healthy" pour toutes les resources
-
-### Observabilité
-- [ ] Prometheus scrape les métriques des 5 microservices
-- [ ] Grafana affiche un dashboard "CloudShop Overview"
-- [ ] Au moins 2 alertes configurées
-- [ ] SLO défini et affiché dans Grafana
-
-### Sécurité & SRE
-- [ ] Kyverno installé et au moins 2 policies actives
-- [ ] Pipeline GitHub Actions fonctionne (build + push + sign)
-- [ ] Image signée avec Cosign et vérifiable
-- [ ] Chaos Experiment exécuté avec succès (pod-delete)
-- [ ] Application récupère après le chaos test (auto-healing)
+| Jour | Thème | Status | Difficulté |
+|------|-------|--------|-----------|
+| Jour 2 | Optimisation Docker | ✅ | ⭐⭐ |
+| Jour 3 | Kubernetes Fondamentaux | ✅ | ⭐⭐⭐ |
+| Jour 4 | Monitoring & GitOps | ✅ | ⭐⭐⭐⭐ |
+| Jour 5 | Platform Engineering & SRE | ✅ | ⭐⭐⭐⭐⭐ |
+| **Jour 6** | **Docker Avancé & Data Engineering** | ✅ **NEW** | ⭐⭐⭐⭐ |
 
 ---
 
-## En Cas de Blocage
+## 🎓 Compétences développées
 
-1. **Consultez les aides** : Chaque partie contient un fichier `AIDE.md` avec des indices
-2. **Relisez les cours** : Les concepts sont tous dans les cours Jours 1-5
-3. **Debuggez méthodiquement** :
-   ```bash
-   kubectl describe pod <pod-name>
-   kubectl logs <pod-name>
-   kubectl get events --sort-by='.lastTimestamp'
-   ```
+### Jour 5 - Platform Engineering
+
+✅ **Techniques** :
+- Internal Developer Platforms (IDP)
+- Policy as Code
+- Supply Chain Security
+- Site Reliability Engineering (SRE)
+- Chaos Engineering
+- CI/CD Cloud Native
+
+✅ **Outils maîtrisés** :
+- Backstage, Kyverno, Cosign, Litmus, Tekton, Prometheus
+
+✅ **Certifications préparées** :
+- CKA (Certified Kubernetes Administrator)
+- CKS (Certified Kubernetes Security Specialist)
+- FCSA (CNCF Security Specialist)
+
+### Jour 6 - Docker Avancé & Data Engineering
+
+✅ **Techniques** :
+- Optimisation d'images Docker
+- Orchestration multi-services (Compose, Swarm)
+- Sécurité des conteneurs
+- CI/CD avec Docker
+- Monitoring et observabilité
+- Pipeline ML/Data avec conteneurs
+
+✅ **Outils maîtrisés** :
+- Docker, Docker Compose, Docker Swarm
+- Prometheus, Grafana
+- GitHub Actions
+- Trivy, Docker Scout
+- Kafka, PostgreSQL
+
+✅ **Certifications préparées** :
+- Docker Certified Associate (DCA)
+- CKA (Certified Kubernetes Administrator)
+- Compétences Data Engineering
+
 ---
 
-## Livrables Finaux
+## 📚 Ressources
 
-À rendre à la fin du TD :
+### Documentation
+- [Kubernetes](https://kubernetes.io/docs)
+- [Backstage](https://backstage.io/docs)
+- [Kyverno](https://kyverno.io/docs)
+- [Tekton](https://tekton.dev/docs)
+- [Google SRE Books](https://sre.google/books/)
 
-1. **Code source** : Dossier `src/` avec tous les Dockerfiles
-2. **Manifests K8s** : Dossier `k8s/` complet
-3. **Configurations** : `docker-compose.yml`, ArgoCD apps, Prometheus rules
-4. **Documentation** : `ARCHITECTURE.md` expliquant vos choix techniques
-5. **Screenshots** : 
-   - Frontend accessible
-   - ArgoCD dashboard
-   - Grafana dashboards
-   - Kyverno policies actives
-   - Chaos Experiment résultats
+### Livres recommandés
+- **Site Reliability Engineering** (Google)
+- **The DevOps Handbook** (Gene Kim)
+- **Accelerate** (Nicole Forsgren)
+- **Team Topologies** (Matthew Skelton)
 
 ---
 
-**Bonne chance ! Ce TD est l'aboutissement de votre formation. Montrez tout ce que vous avez appris ! **
+## 👨‍🏫 Formateur
 
-*N'oubliez pas : L'objectif n'est pas la perfection, mais la démonstration de votre compréhension des concepts Docker/Kubernetes/GitOps/SRE.*
+**Ayoub **  
+Formateur Data, IA et DevOps  
+15+ ans d'expérience
+
+---
+
+## 📧 Contact
+
+Pour toute question sur les TPs :
+- GitHub Issues : [Master-M2-FullStack/issues](https://github.com/abenhamdi/Master-M2-FullStack/issues)
+
+---
+
+**Formation** : Master 2 Full Stack  
+**École** : YNOV Montpellier  
+**Année** : 2025-2026  

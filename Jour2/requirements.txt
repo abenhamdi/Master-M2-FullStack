@@ -1,0 +1,180 @@
+# Requirements pour le TP Docker Avancé - Optimisation Extrême & Images Distroless
+# Master 2 Full Stack - Docker Jour 2
+
+# ===================================
+# PRÉREQUIS SYSTÈME
+# ===================================
+
+# Docker
+# - Docker Engine 20.10+
+# - Docker Compose 2.0+
+# - BuildKit activé (DOCKER_BUILDKIT=1)
+
+# Python
+# - Python 3.11+
+# - pip 23.0+
+# - Poetry 1.7.0+
+
+# Node.js
+# - Node.js 18+
+# - npm 9.0+
+
+# Java
+# - OpenJDK 17+
+# - Maven 3.9+
+
+# ===================================
+# OUTILS D'ANALYSE DOCKER
+# ===================================
+
+# Dive - Analyse des layers Docker
+# Installation: https://github.com/wagoodman/dive
+# Linux: wget https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
+# macOS: brew install dive
+
+# Trivy - Scanner de vulnérabilités
+# Installation: https://aquasecurity.github.io/trivy/
+# Linux: apt-get install trivy
+# macOS: brew install trivy
+
+# Syft - Génération de SBOM
+# Installation: https://github.com/anchore/syft
+# Linux: curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+# macOS: brew install syft
+
+# Grype - Alternative à Trivy
+# Installation: https://github.com/anchore/grype
+# Linux: curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+# macOS: brew install grype
+
+# ===================================
+# PACKAGES PYTHON (pour l'analyse)
+# ===================================
+
+# Packages de base
+requests>=2.31.0
+urllib3>=2.0.0
+certifi>=2023.7.22
+
+# Packages pour l'analyse
+psutil>=5.9.0
+click>=8.1.0
+colorama>=0.4.6
+tabulate>=0.9.0
+
+# Packages pour les tests
+pytest>=7.4.0
+pytest-cov>=4.1.0
+httpx>=0.25.0
+
+# Packages pour la documentation
+mkdocs>=1.5.0
+mkdocs-material>=9.2.0
+
+# ===================================
+# PACKAGES NODE.JS (pour l'analyse)
+# ===================================
+
+# Packages globaux recommandés
+npm install -g @types/node
+npm install -g typescript
+npm install -g ts-node
+npm install -g nodemon
+npm install -g jest
+npm install -g eslint
+npm install -g prettier
+
+# ===================================
+# PACKAGES JAVA (pour l'analyse)
+# ===================================
+
+# Plugins Maven recommandés
+# - maven-compiler-plugin:3.11.0
+# - maven-surefire-plugin:3.1.2
+# - spring-boot-maven-plugin:3.2.0
+
+# ===================================
+# IMAGES DOCKER NÉCESSAIRES
+# ===================================
+
+# Images de base
+# - node:18-alpine
+# - python:3.11-slim
+# - maven:3.9-eclipse-temurin-17
+# - openjdk:17-jre-slim
+
+# Images distroless
+# - gcr.io/distroless/nodejs18-debian11
+# - gcr.io/distroless/python3-debian11
+# - gcr.io/distroless/java17-debian11
+
+# Outils d'analyse
+# - wagoodman/dive
+# - aquasec/trivy
+# - anchore/syft
+
+# ===================================
+# COMMANDES D'INSTALLATION RAPIDE
+# ===================================
+
+# Installation automatique (Linux/macOS)
+# ./install-requirements.sh
+
+# Installation manuelle
+# Docker: https://docs.docker.com/get-docker/
+# Python: https://www.python.org/downloads/
+# Node.js: https://nodejs.org/
+# Java: https://openjdk.java.net/
+# Poetry: https://python-poetry.org/docs/#installation
+
+# ===================================
+# VÉRIFICATION DES INSTALLATIONS
+# ===================================
+
+# Vérifier Docker
+# docker --version
+# docker-compose --version
+
+# Vérifier Python
+# python3 --version
+# pip3 --version
+# poetry --version
+
+# Vérifier Node.js
+# node --version
+# npm --version
+
+# Vérifier Java
+java --version
+mvn --version
+
+# Vérifier les outils d'analyse
+dive --version
+trivy --version
+syft --version
+
+# ===================================
+# CONFIGURATION DE L'ENVIRONNEMENT
+# ===================================
+
+# Activer BuildKit
+export DOCKER_BUILDKIT=1
+echo 'export DOCKER_BUILDKIT=1' >> ~/.bashrc
+
+# Ajouter Poetry au PATH (si nécessaire)
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+
+# ===================================
+# TROUBLESHOOTING
+# ===================================
+
+# Problèmes courants:
+# 1. Docker non démarré: sudo systemctl start docker
+# 2. Permissions Docker: sudo usermod -aG docker $USER
+# 3. Poetry non trouvé: source ~/.bashrc
+# 4. BuildKit non activé: export DOCKER_BUILDKIT=1
+
+# Support:
+# - Documentation Docker: https://docs.docker.com/
+# - Documentation Poetry: https://python-poetry.org/docs/
+# - Issues GitHub: https://github.com/docker-master2/tp-distroless
